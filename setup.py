@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
-    name="iniparser",
+    name="parsini",
     version="1.0",
     description="Python parser for ini files.",
-    packages=["src"],
+    packages=find_packages(),
     zip_safe=False,
 )

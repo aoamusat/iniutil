@@ -1,12 +1,12 @@
 import unittest
-from iniparser.parser import parse_ini
+from parsini.parser import parse_ini
 
 
 class Test(unittest.TestCase):
     def setUp(self):
         # Set up paths relative to the test script
-        self.sample_ini_path = "config_files/sample.ini"
-        self.generic_ini_path = "config_files/generic.ini"
+        self.sample_ini_path = "resources/sample.ini"
+        self.generic_ini_path = "resources/generic.ini"
 
     def test_example_case(self):
         """example case"""
