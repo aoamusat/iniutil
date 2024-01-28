@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iniutil"
-version = "1.0.0"
+version = "1.0.2"
 authors = [
   { name="Akeem Amusat", email="hi@olayml.xyz" },
 ]
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/aoamusat/parsini"
-Issues = "https://github.com/aoamusat/parsini/issues"
+Homepage = "https://github.com/aoamusat/iniutil"
+Issues = "https://github.com/aoamusat/iniutil/issues"
