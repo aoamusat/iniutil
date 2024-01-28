@@ -20,11 +20,11 @@ This project provides a simple and flexible Python module for parsing configurat
 Using PyPI:
 
 ```bash
-pip install parsini
+pip install iniutil
 ```
 
 ## Usage
 ```python
-from parsini import parse_ini
+from iniutil import parse_ini
 confg = parse_ini("path/to/config.ini")
 ```
