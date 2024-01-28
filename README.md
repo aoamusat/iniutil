@@ -17,8 +17,14 @@ This project provides a simple and flexible Python module for parsing configurat
 
 ### Installation
 
-Clone the repository:
+Using PyPI:
 
 ```bash
-git clone https://github.com/yourusername/config-file-parser.git
+pip install parsini
+```
+
+## Usage
+```python
+from parsini import parse_ini
+confg = parse_ini("path/to/config.ini")
 ```
