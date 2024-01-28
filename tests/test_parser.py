@@ -1,5 +1,5 @@
 import unittest
-from parser import parse_ini
+from iniparser.parser import parse_ini
 
 
 class Test(unittest.TestCase):
