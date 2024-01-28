@@ -1,0 +1,24 @@
+name: Create a New Release
+
+# Controls when the action will run. Triggers the workflow on push to the master branch.
+on:
+  push:
+    branches:
+      - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: "v1.0-${{ github.run_id }}"
+          release_name: "Release v1.0-${{ github.run_id }}"
+          draft: false
