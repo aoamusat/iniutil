@@ -3,10 +3,10 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "parsini"
+name = "iniutil"
 version = "1.0.0"
 authors = [
-  { name="Akeem Amusat", email="contact@olayml.xyz" },
+  { name="Akeem Amusat", email="hi@olayml.xyz" },
 ]
 description = "Python parser for ini files."
 readme = "README.md"
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/aoamusat/iniparser"
-Issues = "https://github.com/aoamusat/iniparser/issues"
+Homepage = "https://github.com/aoamusat/parsini"
+Issues = "https://github.com/aoamusat/parsini/issues"
