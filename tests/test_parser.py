@@ -1,15 +1,17 @@
 import unittest
-from iniutil.parser import parse_ini
+from iniutil.parser import cast_config_value, parse_ini
 
 
-class Test(unittest.TestCase):
-    def setUp(self):
-        # Set up paths relative to the test script
-        self.sample_ini_path = "resources/sample.ini"
-        self.generic_ini_path = "resources/generic.ini"
+class ParserTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.test_file_path = "resources/sample.ini"
 
-    def test_example_case(self):
-        """example case"""
+    @classmethod
+    def tearDownClass(cls) -> None:
+        del cls.test_file_path
+
+    def test_ini_parser(self):
         expected = {
             "owner": {
                 "name": "John Doe",
@@ -24,24 +26,16 @@ class Test(unittest.TestCase):
                 "connection": "",
             },
         }
-        actual = parse_ini(self.sample_ini_path)
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, parse_ini(self.test_file_path))
 
-    def test_generic_case(self):
-        """generic case"""
-        expected = {
-            "section": {
-                "b": False,
-                "f": 206.201,
-                "i": -55,
-                "i1": 1,
-                "b1": True,
-                "b2": False,
-                "s": "",
-            },
-        }
-        actual = parse_ini(self.generic_ini_path)
-        self.assertEqual(actual, expected)
+    def test_value_cast(self):
+        self.assertEqual(
+            cast_config_value("https://api.example.com"), "https://api.example.com"
+        )
+        self.assertEqual(cast_config_value("3306"), 3306)
+        self.assertEqual(cast_config_value("false"), False)
+        self.assertEqual(cast_config_value("true"), True)
+        self.assertEqual(cast_config_value("9.5"), 9.5)
 
 
 if __name__ == "__main__":

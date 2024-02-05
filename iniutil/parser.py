@@ -1,4 +1,28 @@
-from typing import Generator, Dict
+from typing import Generator, Dict, Any
+
+
+def cast_config_value(value: str) -> Any:
+    """Cast the given config value to appropriate type
+
+    Args:
+        value (Any): config value to cast
+
+    Returns:
+        Any: casted value
+    """
+
+    BOOLEAN_VALUES = ["true", "false"]
+
+    if value.lower() in BOOLEAN_VALUES:
+        return True if value.lower() == "true" else False
+    try:
+        return int(value)
+    except ValueError:
+        try:
+            return float(value)
+        except ValueError:
+            return value
+
 
 def read_ini(path: str) -> Generator:
     """Read ini configuration file
@@ -44,13 +68,9 @@ def parse_ini(path: str) -> Dict[str, Dict[str, str]]:
         key, val = line.split("=", 1)
 
         if current_section is not None:
-            config[current_section][key.strip()] = val.strip()
+            config[current_section][key.strip()] = cast_config_value(val.strip())
             continue
         else:
-            config[key.strip()] = val.strip()
+            config[key.strip()] = cast_config_value(val.strip())
             current_section = None
     return config
-
-if __name__ == "__main__":
-    print(parse_ini("samples/sample.ini"))
-    print(parse_ini("samples/generic.ini"))
