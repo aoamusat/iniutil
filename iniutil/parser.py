@@ -50,7 +50,3 @@ def parse_ini(path: str) -> Dict[str, Dict[str, str]]:
             config[key.strip()] = val.strip()
             current_section = None
     return config
-
-if __name__ == "__main__":
-    print(parse_ini("samples/sample.ini"))
-    print(parse_ini("samples/generic.ini"))
