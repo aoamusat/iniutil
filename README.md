@@ -26,5 +26,5 @@ pip install iniutil
 ## Usage
 ```python
 from iniutil import parse_ini
-confg = parse_ini("path/to/config.ini")
+config = parse_ini("path/to/config.ini")
 ```
