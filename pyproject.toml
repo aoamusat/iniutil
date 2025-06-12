@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "iniutil"
 version = "1.0.4"
 authors = [
-  { name="Akeem Amusat", email="hi@olayml.xyz" },
+  { name="Akeem Amusat", email="aoamusat@gmail.com" },
 ]
 description = "Python parser for ini files."
 readme = "README.md"
